@@ -1,71 +1,61 @@
 <?php
-// 6.1
-// array_push()
+// array_push() : menambah data di akhir array
 $a = array("A");
 echo 'Array awal: ("A")<br>';
-array_push($a, "B");  
+array_push($a, "B");
 echo "Hasil array_push: " . implode(" ", $a) . "<br><br>";
 
-// array_merge()
-$a1 = array("A", "B");
-$a2 = array("C");
+// array_merge() : menggabung dua array
+$b = array("A", "B");
+$c = array("C");
+$gabung = array_merge($b, $c);
 echo 'Array awal: ("A", "B") digabung dengan ("C")<br>';
-$gabung = array_merge($a1, $a2); 
 echo "Hasil array_merge: " . implode(" ", $gabung) . "<br><br>";
 
-// array_values()
-$b = array("x" => 1, "y" => 2);
+// array_values() : mengambil nilainya saja (key dibuang)
+$d = array("x" => 1, "y" => 2);
 echo 'Array awal: ("x" => 1, "y" => 2)<br>';
-$nilai = array_values($b);   
-echo "Hasil array_values: " . implode(" ", $nilai) . "<br><br>";
+echo "Hasil array_values: " . implode(" ", array_values($d)) . "<br><br>";
 
-// array_search()
-$c = array("A", "B", "C");
+// array_search() : mencari posisi (key) sebuah nilai 
+$e = array("A", "B", "C");
 echo 'Mencari "B" pada array: ("A", "B", "C")<br>';
-$cari = array_search("B", $c);   
-echo "Hasil array_search: " . $cari . "<br><br>";
+echo "Hasil array_search: " . array_search("B", $e) . "<br><br>";
 
-// array_filter()
-$d = array(0, 1, false, 2, "", 3, "array");
+// array_filter() : membuang nilai yang dianggap kosong/false
+$f = array(0, 1, false, 2, "", 3, "array");
 echo 'Array awal: (0, 1, false, 2, "", 3, "array")<br>';
-$filter = array_filter($d);  
-echo "Hasil array_filter: " . implode(" ", $filter) . "<br><br>";
+echo "Hasil array_filter: " . implode(" ", array_filter($f)) . "<br><br>";
 
-// sort() dan rsort() (array terindeks)
-$e = array(3, 1, 2);
+// sort() & rsort() : array terindeks 
+$g = array(3, 1, 2);
 echo "Array awal: (3, 1, 2)<br>";
-$e1 = $e;
-sort($e1);
-echo "Hasil sort: " . implode(" ", $e1) . "<br>";
-$e2 = $e;
-rsort($e2); 
-echo "Hasil rsort: " . implode(" ", $e2) . "<br><br>";
+sort($g);                                   
+echo "Hasil sort: " . implode(" ", $g) . "<br>";
+rsort($g);                                 
+echo "Hasil rsort: " . implode(" ", $g) . "<br><br>";
 
-// asort(), ksort(), arsort(), krsort() (array asosiatif)
+// asort(), ksort(), arsort(), krsort() : array asosiatif
 $age = array("Peter" => 35, "Ben" => 37, "Joe" => 43);
 echo 'Array awal: ("Peter"=>35, "Ben"=>37, "Joe"=>43)<br>';
 
-$f = $age;
-asort($f);    // urut naik berdasarkan value
+asort($age);
 echo "Hasil asort: ";
-foreach ($f as $k => $v) { echo $k . "=> " . $v . ", "; }
+foreach ($age as $k => $v) { echo "$k=> $v, "; }
 echo "<br>";
 
-$f = $age;
-ksort($f);    // urut naik berdasarkan key
+ksort($age);
 echo "Hasil ksort: ";
-foreach ($f as $k => $v) { echo $k . "=> " . $v . ", "; }
+foreach ($age as $k => $v) { echo "$k=> $v, "; }
 echo "<br>";
 
-$f = $age;
-arsort($f);   // urut turun berdasarkan value
+arsort($age);                               
 echo "Hasil arsort: ";
-foreach ($f as $k => $v) { echo $k . "=> " . $v . ", "; }
+foreach ($age as $k => $v) { echo "$k=> $v, "; }
 echo "<br>";
 
-$f = $age;
-krsort($f);   // urut turun berdasarkan key
+krsort($age); 
 echo "Hasil krsort: ";
-foreach ($f as $k => $v) { echo $k . "=> " . $v . ", "; }
+foreach ($age as $k => $v) { echo "$k=> $v, "; }
 echo "<br>";
 ?>
